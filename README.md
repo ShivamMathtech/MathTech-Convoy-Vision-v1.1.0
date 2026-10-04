@@ -5,6 +5,7 @@ Developed by **Shivam Singh, Founder of MathTech**
 **I HAVE NO LIMITATION**
 
 A complete, self-hosted, single-node application based on your dashboard reference. It includes the backend, offline dashboard, trained model weights, SQLite database schema, training/evaluation utilities, launchers, tests and Docker deployment files. The screens use real API data. No hardcoded detection results are substituted when a model is unavailable.
+![image](dash.png)
 
 ## Upgrade an existing installation
 
