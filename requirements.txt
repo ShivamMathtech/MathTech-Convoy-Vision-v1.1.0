@@ -1,0 +1,11 @@
+# -c constraints.txt
+fastapi
+uvicorn
+starlette
+pydantic
+
+opencv-python-headless
+onnxruntime
+python-multipart
+websockets
+imageio-ffmpeg
