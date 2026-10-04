@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {frameAt} from '../frontend/player.js';
+const object={id:1,class_name:'car',confidence:.9,bbox:[10,20,30,40],center:[20,30],velocity:{x:10,y:0,speed:10},mask_area_px:300,contours:[{hole:false,points:[[10,20],[30,20],[25,40]]}],history:[[20,30,0]]};
+const first={seq:0,timestamp:0,width:100,height:100,objects:[object]};
+const second={seq:1,timestamp:1,width:100,height:100,objects:[{...object,bbox:[20,20,40,40],center:[30,30],history:[[20,30,0],[30,30,1]]}]};
+const before=JSON.stringify([first,second]);
+const halfway=frameAt([first,second],.5);
+assert.deepEqual(halfway.objects[0].bbox,[15,20,35,40]);
+assert.deepEqual(halfway.objects[0].contours[0].points[0],[15,20]);
+assert.equal(halfway.objects[0].mask_area_px,300);assert.equal(halfway.objects[0].confidence,.9);
+assert.equal(halfway.display_method,'interpolated');
+assert.equal(frameAt([first,second],1.2).display_method,'brief_prediction');
+assert.equal(frameAt([first,second],1.8),null);
+assert.equal(frameAt([second],.5),null);
+assert.equal(frameAt([],0),null);
+assert.equal(JSON.stringify([first,second]),before,'Rendering must not modify exported observations');
+console.log('Renderer regression passed: timestamp alignment, mask transform, limited prediction, stale hiding and immutable observations.');
