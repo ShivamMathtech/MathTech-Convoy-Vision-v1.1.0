@@ -1,0 +1,8 @@
+{
+  "check": "batched_OpenCV_vs_original_NumPy_projection",
+  "bus_confidence": 0.86125,
+  "mask_contour_iou": 1.0,
+  "old_mask_area_px": 254619,
+  "new_mask_area_px": 254619,
+  "identical_contours": true
+}

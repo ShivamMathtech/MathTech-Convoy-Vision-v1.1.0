@@ -1,0 +1,11 @@
+{
+  "test": "slow_real_inference_native_playback",
+  "elapsed": 3.502,
+  "advanced": 3.502059,
+  "total": 60,
+  "dropped": 0,
+  "max_frame_gap_seconds": 0.06666700000000025,
+  "analyzed_frames": 16,
+  "mean_inference_ms": 553.53875,
+  "jpeg_requests": 0
+}
